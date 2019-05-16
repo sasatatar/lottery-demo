@@ -1,7 +1,9 @@
+import uid from "uid";
+
 //Fake RESTful API
 
 let data = Array.from({ length: 30 }, (_, i) => ({
-    id: i + 1,
+    id: uid(),
     username: `user${i + 1}`,
     display: `User ${i + 1}`,
     enabled: true
@@ -40,7 +42,7 @@ export function postUser(user) {
         let id = data.length + 1;
         let result = {
             ...user,
-            id: id
+            id: uid()
         };
         data.push(result);
         resolve(result);

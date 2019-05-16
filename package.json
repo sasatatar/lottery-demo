@@ -17,6 +17,7 @@
     "cx-react": "^17.10.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "uid": "^0.0.2",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
