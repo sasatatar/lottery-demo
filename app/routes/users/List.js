@@ -39,8 +39,8 @@ export default (
                     <Link href-tpl="~/users/{$user.id}" class="user-card">
                         <Section mod="card" class="user-card-body">
                             <img src="http://placehold.it/50x50" />
-                            <h6 text-bind="$user.display" />
-                            @<span text-bind="$user.username" />
+                            <h6 text-bind="$user.name" />
+                            Guess: <span text-bind="$user.number" />
                         </Section>
                     </Link>
                 </Repeater>
