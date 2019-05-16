@@ -6,7 +6,8 @@ import {
     TextField,
     Checkbox,
     Rescope,
-    ValidationGroup
+    ValidationGroup,
+    NumberField
 } from "cx/widgets";
 import { LabelsTopLayout } from "cx/ui";
 
@@ -31,23 +32,19 @@ export default (
                     invalid-bind="invalid"
                 >
                     <TextField
-                        label="Username"
-                        value-bind="user.username"
+                        label="Player name"
+                        value-bind="user.name"
                         style="width: 100%"
                         required
                     />
-                    <TextField
-                        label="Display"
-                        value-bind="user.display"
+                    <NumberField
+                        label="Guess"
+                        value-bind="user.number"
                         style="width: 100%"
+                        maxValue={100}
+                        minValue={0}
                         required
                     />
-                    <TextField
-                        label="Email"
-                        value-bind="user.email"
-                        style="width: 100%"
-                    />
-                    <Checkbox value-bind="user.enabled">Enabled</Checkbox>
                     <hr />
                     <FlexRow spacing>
                         <Button
