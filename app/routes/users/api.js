@@ -1,15 +1,13 @@
 import uid from "uid";
+import casual from 'casual-browserify';
 
 //Fake RESTful API
 
-// let data = Array.from({ length: 30 }, (_, i) => ({
-//     id: uid(),
-//     username: `user${i + 1}`,
-//     display: `User ${i + 1}`,
-//     enabled: true
-// }));
-
-let data = [];
+let data = Array.from({ length: 30 }, (_, i) => ({
+    id: uid(),
+    name: casual.full_name,
+    number: casual.integer(0, 100),
+}));
 
 export function queryUsers(q) {
     return new Promise(resolve => {
