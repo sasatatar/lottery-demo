@@ -1,7 +1,7 @@
 import {Controller} from "cx/ui";
 import casual from "casual-browserify";
 
-export default class extends Controller {
+export class LotteryController extends Controller {
     onInit() {
         this.store.init("$page.numbers", []);
     }
