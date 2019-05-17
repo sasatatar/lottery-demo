@@ -7,12 +7,14 @@ import {
     Checkbox,
     Rescope,
     ValidationGroup,
-    NumberField
+    NumberField,
+    Repeater
 } from "cx/widgets";
 import { LabelsTopLayout } from "cx/ui";
 
 import Controller from "./EditorController";
 import "cx/widgets/icons";
+import { MAX_LOTTERY_VALUE, MIN_LOTTERY_VALUE } from "./api";
 
 export default (
     <cx>
@@ -20,8 +22,8 @@ export default (
             <h2 putInto="header">Edit User</h2>
             <Section
                 mod="card"
-                style="max-width: 300px"
-                title-bind="user.display"
+                style="max-width: 300px; height: 485px;"
+                title-tpl="{user.name|New user}"
             >
                 <ValidationGroup
                     layout={{
@@ -37,14 +39,16 @@ export default (
                         style="width: 100%"
                         required
                     />
-                    <NumberField
-                        label="Guess"
-                        value-bind="user.number"
-                        style="width: 100%"
-                        maxValue={100}
-                        minValue={0}
-                        required
-                    />
+                    <Repeater records-bind="user.numbers">
+                        <NumberField
+                            label-expr="'Number ' + ({$index} + 1)"
+                            value-bind="$record.value"
+                            style="width: 100%"
+                            maxValue={MAX_LOTTERY_VALUE}
+                            minValue={MIN_LOTTERY_VALUE}
+                            required
+                        />
+                    </Repeater>
                     <hr />
                     <FlexRow spacing>
                         <Button
@@ -58,6 +62,7 @@ export default (
                             Cancel
                         </LinkButton>
                         <Button
+                            visible-expr="{$root.$route.userId} != 'new'"
                             mod="hollow"
                             onClick="onDelete"
                             style="margin-left: auto; color: red"

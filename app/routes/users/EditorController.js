@@ -8,7 +8,7 @@ export default class extends Controller {
 
         if (userId == "new") {
             this.store.set("user", {
-                display: "New User"
+                numbers: Array.from({length: 5}).map((_, i) => ({ id: i, value: null }))
             });
         } else {
             getUser(userId).then(data => {

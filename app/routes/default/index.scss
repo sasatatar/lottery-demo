@@ -9,7 +9,42 @@
     font-size: 32px;
     font-weight: 600;
     margin: 10px;
+
+    &.cxm-medium {
+        width: 60px; 
+        height: 60px; 
+        line-height: 60px;
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    &.cxm-small {
+        height: 26px;
+        width: 26px;
+        font-size: 10px;
+        line-height: 26px;
+        margin: 0;
+        margin-left: 8px;
+        background-color: rgba(#000, 0.08);
+        color: black; 
+        display: inline-block;
+        // &:nth-child(even) {
+        //     background-color: rgba(#000, 0.08);
+        // }
+    }
+
+    &.hit {
+        background-color: lighten(dodgerblue, 8);
+        color: white;
+    }
+
+    // &:nth-child(even) {
+    //     background-color: lighten(dodgerblue, 10);
+    // }
 }
+
+
+
 
 .big-button {
     height: 70px; 
