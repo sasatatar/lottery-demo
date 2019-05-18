@@ -1,22 +1,23 @@
 import uid from "uid";
 import casual from 'casual-browserify';
-export const MAX_LOTTERY_VALUE = 48;
-export const MIN_LOTTERY_VALUE = 0;
+import { lotteryGenerator } from "../../util";
+export const MAX_LOTTERY_VALUE = 17;
+export const MIN_LOTTERY_VALUE = 1;
 
 //Fake RESTful API
 
-// let data = Array.from({ length: 20 }, (_, i) => ({
-//     id: uid(),
-//     name: casual.full_name,
-//     numbers: getFiveNumbers()
-// }));
-let data = [];
+let data = Array.from({ length: 20 }, (_, i) => ({
+    id: uid(),
+    name: casual.full_name,
+    numbers: getFiveNumbers()
+}));
+//data = [];
 
 function getFiveNumbers() {
+    const getRandomBall = lotteryGenerator(MAX_LOTTERY_VALUE);
     let numbers = [];
     while (numbers.length < 5) {
-        let num = casual.integer(MIN_LOTTERY_VALUE, MAX_LOTTERY_VALUE);
-        if (!numbers.includes(num)) numbers.push(num);
+        numbers.push(getRandomBall());
     }
     return numbers.map((n, i) => ({ id: i, value: n}));
 }

@@ -1,14 +1,15 @@
 import { Section, Button, Repeater, Grid } from "cx/widgets";
 
-import {LotteryController} from "./LotteryController";
+import {getLotteryController} from "./LotteryController";
 import {PlayersController} from "./PlayersController";
 import { computable } from "cx/ui";
+import { MAX_LOTTERY_VALUE } from "../users/api";
 
 export default (
     <cx>
         <h2 putInto="header">Home</h2>
         <div style="display: flex; overflow: auto; flex: 1;">
-            <Section mod="card" controller={LotteryController} style="flex: 1" bodyStyle="display: flex; flex-direction: column;"
+            <Section mod="card" controller={getLotteryController()} style="flex: 1" bodyStyle="display: flex; flex-direction: column;"
                 header={{ 
                     items: (
                         <cx>
@@ -21,7 +22,9 @@ export default (
                 }}
             >
                 <div style="display: flex; flex: 1; justify-content: center;">
-                    <Button text="Draw number" mod="primary" class="big-button" onClick="drawNumber" style="margin-right: 10px;" />
+                    <Button text="Draw number" mod="primary" class="big-button" onClick="drawNumber" style="margin-right: 10px;" 
+                        disabled={computable("$page.numbers.length", numDrawn => numDrawn === MAX_LOTTERY_VALUE)}
+                    />
                 </div>
                 <div style="display: flex; flex-wrap: wrap; min-height: 120px; background-color: seashell">
                     <Repeater records-bind="$page.numbers">
