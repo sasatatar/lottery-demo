@@ -1,4 +1,5 @@
 export function lotteryGenerator(max) {
+    max = 49;
     let balls = Array.from({length: max }).map((_, i) => i+1);
 
     return function getRandomBall() {
