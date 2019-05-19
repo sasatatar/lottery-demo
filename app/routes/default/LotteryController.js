@@ -1,11 +1,9 @@
 import {Controller} from "cx/ui";
-import casual from "casual-browserify";
-import { MIN_LOTTERY_VALUE, MAX_LOTTERY_VALUE } from "../users/api";
-import { lotteryGenerator } from "../../util";
+import { lotteryGenerator } from "../../util/lotteryGenerator";
 
 export const getLotteryController = () => {
 
-    let getRandomBall = lotteryGenerator(MAX_LOTTERY_VALUE);
+    let getRandomBall = lotteryGenerator();
 
     return class extends Controller {
         onInit() {
@@ -27,7 +25,7 @@ export const getLotteryController = () => {
 
         reset() {
             this.store.set("$page.numbers", []);
-            getRandomBall = lotteryGenerator(MAX_LOTTERY_VALUE);
+            getRandomBall = lotteryGenerator();
         }
     }
 }

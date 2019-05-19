@@ -1,6 +1,8 @@
-export function lotteryGenerator(max) {
-    max = 49;
-    let balls = Array.from({length: max }).map((_, i) => i+1);
+import { MAX_LOTTERY_VALUE } from "../constants";
+
+export function lotteryGenerator() {
+    
+    let balls = Array.from({length: MAX_LOTTERY_VALUE }).map((_, i) => i+1);
 
     return function getRandomBall() {
         let index = getRandomInt(balls.length);

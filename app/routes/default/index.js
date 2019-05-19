@@ -3,7 +3,7 @@ import { Section, Button, Repeater, Grid } from "cx/widgets";
 import {getLotteryController} from "./LotteryController";
 import {PlayersController} from "./PlayersController";
 import { computable } from "cx/ui";
-import { MAX_LOTTERY_VALUE } from "../users/api";
+import { MAX_LOTTERY_VALUE } from "../../constants";
 
 export default (
     <cx>

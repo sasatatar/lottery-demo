@@ -1,8 +1,6 @@
 import uid from "uid";
 import casual from 'casual-browserify';
-import { lotteryGenerator } from "../../util";
-export const MAX_LOTTERY_VALUE = 17;
-export const MIN_LOTTERY_VALUE = 1;
+import { lotteryGenerator } from "../../util/lotteryGenerator";
 
 //Fake RESTful API
 
@@ -14,7 +12,7 @@ let data = Array.from({ length: 20 }, (_, i) => ({
 //data = [];
 
 function getFiveNumbers() {
-    const getRandomBall = lotteryGenerator(MAX_LOTTERY_VALUE);
+    const getRandomBall = lotteryGenerator();
     let numbers = [];
     while (numbers.length < 5) {
         numbers.push(getRandomBall());

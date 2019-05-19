@@ -14,7 +14,7 @@ import { LabelsTopLayout } from "cx/ui";
 
 import Controller from "./EditorController";
 import "cx/widgets/icons";
-import { MAX_LOTTERY_VALUE, MIN_LOTTERY_VALUE } from "./api";
+import { MAX_LOTTERY_VALUE } from "../../constants";
 
 export default (
     <cx>
@@ -45,7 +45,7 @@ export default (
                             value-bind="$record.value"
                             style="width: 100%"
                             maxValue={MAX_LOTTERY_VALUE}
-                            minValue={MIN_LOTTERY_VALUE}
+                            minValue={1}
                             required
                         />
                     </Repeater>
